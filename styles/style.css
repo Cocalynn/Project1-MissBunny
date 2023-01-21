@@ -1,0 +1,80 @@
+body {
+    margin:0;
+    padding:0;
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('../images/background-rabbit.webp');
+    background-size: cover;
+    color: white;
+}
+#title {
+    font-size: 3em;
+    text-align: center;
+    margin-top: 50px;
+}
+#game-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#game-info-container {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px;
+    font-size: 1.5em;
+}
+#game-board {
+    background: #f3c1a9;
+    width: 500px;
+    height: 500px;
+    padding: 0px;
+    margin: 10px auto;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 20px -6px #e40f32;
+    display: inline-grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 00px
+  }
+
+  .card {
+    display: inline-block;
+    perspective: 300px;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  
+  .card.turned {
+    pointer-events: none;
+  }
+  
+  .card.turned .front {
+    transform: rotateY(0deg);
+  }
+  .card.turned .back {
+    transform: rotateY(180deg);
+  }
+  
+  .card .back,
+  .card .front {
+    width: 90px;
+    height: 90px;
+    margin: 12px;
+    padding: 5px;
+    transition: transform 0.6s ease;
+  }
+  
+  .card .back {
+    background-color: #eb874d;
+  }
+  
+  .card .front {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: rotateY(-180deg) translateZ(1px);
+    backface-visibility: hidden;
+  }
