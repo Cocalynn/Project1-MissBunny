@@ -8,20 +8,41 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <div id="title">Game Name Here</div>
-    <div id="game-container">
-        <div id="game-info-container">
-            <div class="game-info">
-                Timer: <span id="time-remaining">00:00</span>
+    <div id="title">MISS BUNNY</div>
+    <div id="game">
+        <div id="bunny-head"></div>
+        <div id="game-container">
+            <div id="game-setting">
+                <button class='game-setting-button' id="music">
+                    <img src="./images/setting/Icon_MusicOn.png" >
+                </button>
+                <button class='game-setting-button' id="sound">
+                    <img src="./images/setting/Icon_SoundOn.png" >
+                </button>
             </div>
-            <div class="game-info">
-                Moves: <span id="moves-count">0</span>
+            <div id="game-info-container">
+                <div class="game-info">
+                    Timer: <span id="time-remaining">10</span>
+                </div>
+                <div class="game-info">
+                    Moves: <span id="moves-count">0</span>
+                </div>
             </div>
-        </div>
-        <div id="game-board">
-           
-        </div>
+            <div id="game-board">
+                <!-- Will be filled in main.js-->
+            </div>
+            <button id="play" class="game-button orange">Play</button>
+            <div id="winner">
+                <p>Woohoo! You win</p>
+                <button id="play-again-win" class="game-button red">Play again</button>
+            </div>
+            <div id="loser">
+                <p>Oh no! You lose</p>
+                <button id="play-again-lose" class="game-button red">Try again</button>
+            </div>
 
+        </div>
+        <div id="bunny-head"></div>
     </div>
     <script src="./src/cardGame.js"></script>
     <script src="./src/main.js"></script>
