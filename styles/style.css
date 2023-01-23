@@ -1,12 +1,4 @@
-/* CSS HEX 
---black: #000000ff;
---chinese-red: #a3320bff;
---middle-red: #f38d68ff;
---mustard: #ffd350ff;
---naples yellow: #f8d65eff;
---cosmic-latte: #f8f4e3ff;
 
-*/
 @import url('https://fonts.googleapis.com/css?family=Carter+One');
 body {
     margin:0;
@@ -52,7 +44,7 @@ body {
     margin-bottom: 30px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
 }
 .game-setting-button {
     margin-left: 30px;
@@ -62,7 +54,7 @@ body {
     width: 14%;
     height: 80%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     border-radius: 100%;;
     background-image: repeating-linear-gradient( 45deg, #ffc800, #ffc800 5px, #ffc200 5px, #ffc200 10px);
@@ -73,12 +65,13 @@ body {
     top: 2px;
     box-shadow: 0 4px 0 #b76113, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #75421f, 0 10px 0 5px #8a542b, 0 13px 0 5px #593116, 0 13px 1px 6px rgba(0,0,0,.3);
 }
-
+#question img,
 #music img,
 #sound img {
     width: 80%;
     height: 80%;
 }
+
 #game-container {
     width: 50%;
     height: 80%;
@@ -88,14 +81,27 @@ body {
     align-items: center;
 }
 #game-info-container {
-    width: 50%;
+    width: 500px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin: 2px;
     font-size: 1.5em;
     text-shadow: 2px 2px 1px #e78700, -2px 2px 1px #e78700, 2px -2px 1px #e78700, -2px -2px 1px #e78700, 0px 2px 1px #e78700, 0px -2px 1px #e78700, 0px 4px 1px #c96100, 2px 4px 1px #c96100, -2px 4px 1px  #c96100;
-
+}
+.game-info {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.game-info img{
+    width: 20%;
+    height: 20%;
+    margin: 0;
+    padding: 0;
 }
 #game-board {
     width: 500px;
@@ -109,30 +115,21 @@ body {
     grid-gap: 00px
   }
 #play{
-    width: 10vw;
-    height: 5vw;
+    width: 20vw;
+    height: 8vw;
     margin: 0;
-    font-size: 2vw;
+    font-size: 4vw;
+    text-shadow: 5px 2px 1px #e78700, -2px 2px 1px #e78700, 2px -2px 1px #e78700, -2px -2px 1px #e78700, 0px 2px 1px #e78700, 0px -2px 1px #e78700, 0px 4px 1px #c96100, 2px 4px 1px #c96100, -2px 4px 1px  #c96100;
+
+
 }
 
-#winner {
-    width: 20%;
-    height: 20%;
-    background-color: #FCBF49;
-    border: 10px solid #F77F00;
-    border-radius: 25px;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    display: none;
-}
+#winner,
 #loser {
-    width: 20%;
-    height: 20%;
-    background-color: #FCBF49;
-    border: 10px solid #F77F00;
+    width: 40%;
+    height: 30%;
+    background-color: #e78700;
+    border: 10px solid #c96100;
     border-radius: 25px;
     position: absolute;
     display: flex;
@@ -143,15 +140,40 @@ body {
 }
 #loser p ,
 #winner p {
-    width: 70%;
+    font-size: 2em;
+    width: 90%;
     margin: 0;
-    text-shadow: 2px 2px 1px #e78700, -2px 2px 1px #e78700, 2px -2px 1px #e78700, -2px -2px 1px #e78700, 0px 2px 1px #e78700, 0px -2px 1px #e78700, 0px 4px 1px #c96100, 2px 4px 1px #c96100, -2px 4px 1px  #c96100;
+    text-shadow: 2px 2px 1px rgba(205, 102, 0, 0.5), -2px 2px 1px rgba(205, 102, 0, 0.5), 2px -2px 1px rgba(205, 102, 0, 0.5), -2px -2px 1px rgba(205, 102, 0, 0.5), 0px 2px 1px rgba(205, 102, 0, 0.5), 0px -2px 1px rgba(205, 102, 0, 0.5), 0px 4px 1px rgba(205, 102, 0, 0.5), 2px 4px 1px rgba(205, 102, 0, 0.5), -2px 4px 1px  rgba(205, 102, 0, 0.5);
+
 
 }
 #loser button,
 #winner button {
-    width: 60%;
-    height: 30%;
+    width: 40%;
+    height: 25%;
+}
+
+#how-to-play {
+    width: 350px;
+    height: 200px;
+    background-color: #e78700;
+    border-radius: 25px;
+    border: 10px solid #c96100;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    text-shadow: 2px 2px 1px rgba(205, 102, 0, 0.5), -2px 2px 1px rgba(205, 102, 0, 0.5), 2px -2px 1px rgba(205, 102, 0, 0.5), -2px -2px 1px rgba(205, 102, 0, 0.5), 0px 2px 1px rgba(205, 102, 0, 0.5), 0px -2px 1px rgba(205, 102, 0, 0.5), 0px 4px 1px rgba(205, 102, 0, 0.5), 2px 4px 1px rgba(205, 102, 0, 0.5), -2px 4px 1px  rgba(205, 102, 0, 0.5);
+
+}
+
+#how-to-play p{
+    margin: 0;
+}
+#game-intro-title {
+    font-size: 2em;
 }
 
 .game-button {
@@ -177,7 +199,7 @@ body {
   width: 40%;
   background: #fff;
   right: 13%;
-  top: -3%;
+  top: 3%;
   border-radius: 99px;
   }
 .game-button::after {
@@ -187,7 +209,7 @@ body {
   width: 5%;
   background: #fff;
   right: 5%;
-  top: -3%;
+  top: 3%;
   border-radius: 99px;
   }
 .game-button.orange {
@@ -202,6 +224,7 @@ body {
   box-shadow: 0 4px 0 #b76113, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #75421f, 0 10px 0 5px #8a542b, 0 13px 0 5px #593116, 0 13px 1px 6px rgba(0,0,0,.3);
 }
 .game-button.red {
+  font-size: 18px;
   top: 0px;
   background: repeating-linear-gradient( 45deg, #d9322f, #d9322f 5px, #d84a47 5px, #d84a47 10px);
   box-shadow: 0 6px 0 #ae2725, 0 8px 1px 1px rgba(0,0,0,.3), 0 10px 0 5px #831614, 0 12px 0 5px #a33634, 0 15px 0 5px #631716, 0 15px 1px 6px rgba(0,0,0,.3);
@@ -212,6 +235,19 @@ body {
   top:2px;
   box-shadow: 0 4px 0 #ae2725, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #831614, 0 10px 0 5px #a33634, 0 13px 0 5px #631716, 0 13px 1px 6px rgba(0,0,0,.3);
 }
+.game-button.green {
+  width: 80px;
+  font-size: 18px;
+  top:0px;
+  background: repeating-linear-gradient( 45deg, #54d440, #54d440 5px, #52cc3f 5px, #52cc3f 10px);
+  box-shadow: 0 6px 0 #348628, 0 8px 1px 1px rgba(0,0,0,.3), 0 10px 0 5px #2a6d20, 0 12px 0 5px #39822e, 0 15px 0 5px #1d4c16, 0 15px 1px 6px rgba(0,0,0,.3);
+  border-bottom: 3px solid rgba(40, 117, 29, 0.5);
+  text-shadow: 2px 2px 1px #348628, -2px 2px 1px #348628, 2px -2px 1px #348628, -2px -2px 1px #348628, 0px 2px 1px #348628, 0px -2px 1px #348628, 0px 4px 1px #1d4c16, 2px 4px 1px #1d4c16, -2px 4px 1px #1d4c16;
+ }
+ .game-button.green:hover {
+   top:2px;
+   box-shadow: 0 4px 0 #348628, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #2a6d20, 0 10px 0 5px #39822e, 0 13px 0 5px #1d4c16, 0 13px 1px 6px rgba(0,0,0,.3);
+ }
 
 #restart{
     width: 10%;
@@ -248,7 +284,7 @@ body {
 }
 
 .card .back {
-    background-color: #a3320bff;
+    background-color: rgba(205, 102, 0, 0.9);
     border-radius: 25px
 }
 
@@ -259,3 +295,20 @@ body {
     transform: rotateY(-180deg) translateZ(1px);
     backface-visibility: hidden;
 }
+#shake {
+
+    animation: none;
+}
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }

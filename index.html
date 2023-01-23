@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>🥕🐰MISS🥰BUNNY🐰🥕</title>
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
+    <audio controls autoplay loop style="display:none">
+        <source src="./sounds/background.mp3" type="audio/mpeg">
+    </audio>
     <div id="title">MISS BUNNY</div>
     <div id="game">
         <div id="bunny-head"></div>
@@ -19,12 +22,16 @@
                 <button class='game-setting-button' id="sound">
                     <img src="./images/setting/Icon_SoundOn.png" >
                 </button>
+                <button class='game-setting-button' id="question">
+                    <img src="./images/setting/Icon_Question.png" >
             </div>
             <div id="game-info-container">
                 <div class="game-info">
-                    Timer: <span id="time-remaining">10</span>
+                    <img src="./images/setting/Icon_Clock.png" id="shake">
+                    Timer: <span id="time-remaining">60</span>
                 </div>
                 <div class="game-info">
+                    <img src="./images/setting/Icon_Ghost.png">
                     Moves: <span id="moves-count">0</span>
                 </div>
             </div>
@@ -33,12 +40,17 @@
             </div>
             <button id="play" class="game-button orange">Play</button>
             <div id="winner">
-                <p>Woohoo! You win</p>
-                <button id="play-again-win" class="game-button red">Play again</button>
+                <p>Woohoo!  You won!</p>
+                <button class="play-again game-button green">Play again</button>
             </div>
             <div id="loser">
-                <p>Oh no! You lose</p>
-                <button id="play-again-lose" class="game-button red">Try again</button>
+                <p>Oh no!  You lost!</p>
+                <button class="play-again game-button red">Try again</button>
+            </div>
+            <div id="how-to-play">
+                <p id="game-intro-title">How to play?</p>
+                <p>Match all the bunnies in 60 seconds !!</p>
+                <button id='game-intro' class="game-button green">OK</button>
             </div>
 
         </div>

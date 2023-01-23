@@ -4,6 +4,7 @@ class CardGame {
       this.pickedCards = [];
       this.moves = 0;
       this.pairsGuessed = 0;
+      this.score = 0;
     }
   
     shuffleCards() {
