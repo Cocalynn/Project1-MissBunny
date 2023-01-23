@@ -113,7 +113,7 @@ body {
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 00px
   }
-#play{
+#play-button{
     width: 20vw;
     height: 8vw;
     margin: 0;
@@ -294,8 +294,7 @@ body {
     transform: rotateY(-180deg) translateZ(1px);
     backface-visibility: hidden;
 }
-#shake {
-
+.shake {
     animation: none;
 }
 @keyframes shake {

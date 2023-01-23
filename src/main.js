@@ -127,19 +127,23 @@ keys.forEach(key=>{
             time--;
             document.querySelector('#time-remaining').innerHTML = time
             if(time <= 10){
-                document.getElementById('shake').style.animation = 'shake 0.5s';
-                document.getElementById('shake').style.animationIterationCount = 'infinite';
-        
+                document.getElementsByClassName('shake')[0].style.animation = 'shake 0.5s';
+                document.getElementsByClassName('shake')[0].style.animationIterationCount = 'infinite';
+                document.getElementsByClassName('shake')[1].style.animation = 'shake 0.5s';
+                document.getElementsByClassName('shake')[1].style.animationIterationCount = 'infinite';
+                
             }
             if(time == 0 && !game.checkIfFinished()){
                 clearInterval(timer)
-                document.getElementById('shake').style.animation = 'none';
+                document.getElementsByClassName('shake')[0].style.animation = 'none';
+                document.getElementsByClassName('shake')[1].style.animation = 'none';
                 document.getElementById('loser').style.display = 'flex';
                 isGameOn = false
             } 
             if(game.checkIfFinished()){
                 clearInterval(timer)
-                document.getElementById('shake').style.animation = 'none';
+                document.getElementsByClassName('shake')[0].style.animation = 'none';
+                document.getElementsByClassName('shake')[1].style.animation = 'none';
                 document.getElementById('winner').style.display = 'flex';
                 game.score = Math.floor(100* time/game.moves)
                 scoreInfo.innerHTML = `Your score is ${game.score}!`               
