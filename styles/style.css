@@ -7,9 +7,8 @@ body {
     height: 100%;
     font-family: 'Carter One', sans-serif;
     background: #ffd350ff;
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(1.5px);
     background-image: url('../images/background.png');
-    filter: brightness(100%);
     color: #f8f4e3ff;
     text-align: center;
 }
