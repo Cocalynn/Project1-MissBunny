@@ -25,7 +25,9 @@ let isSoundOn = true
 let audio = document.getElementsByTagName('audio')[0];
 let clickSound = new Audio('../sounds/click-button.mp3');
 let flipSound = new Audio('../sounds/flip-card.mp3');
+let scoreInfo = document.createElement('p')
 
+document.getElementById('winner').insertBefore(scoreInfo, document.querySelector('#winner button'));
 
 // set bunny head images by side
 let bunnyHead = document.querySelectorAll('#bunny-head')
@@ -83,16 +85,16 @@ document.getElementById('game-intro').onclick = () => {
     }
 }
 
-
 function restart() {
     //reset the game
-    document.getElementById('play').style.display = 'none';
+    document.getElementsByClassName('play')[0].style.display = 'none';
     document.getElementById('winner').style.display = 'none';
     document.getElementById('loser').style.display = 'none';
     document.getElementById('game-board').innerHTML = '';
     game.score = 0;
     game.pairsGuessed = 0;
     game.moves = 0;
+    document.querySelector('#moves-count').innerHTML = game.moves;
     game.pickedCards = [];
     time = 60;
     document.querySelector('#time-remaining').innerHTML = time;
@@ -113,198 +115,72 @@ function restart() {
 
 }
 
-document.getElementById('play').onclick = () => {
-    if (isSoundOn){
-        clickSound.play();
-    }
-    restart();
-    // Timer for the game
-    let timer = setInterval(()=>{
-    time--;
-    document.querySelector('#time-remaining').innerHTML = time
-    if(time <= 10){
-        document.getElementById('shake').style.animation = 'shake 0.5s';
-        document.getElementById('shake').style.animationIterationCount = 'infinite';
-    }
-    if(time == 0 && !game.checkIfFinished()){
-        clearInterval(timer)
-        document.getElementById('shake').style.animation = 'none';
-        document.getElementById('loser').style.display = 'flex';
-        isGameOn = false
-    } 
-    if(game.checkIfFinished()){
-        clearInterval(timer)
-        document.getElementById('shake').style.animation = 'none';
-        document.getElementById('winner').style.display = 'flex';
-        game.score = Math.floor(100* time/game.moves)
-        let scoreInfo = document.createElement('p')
-        scoreInfo.innerHTML = `Your score is ${game.score}!`
-        document.getElementById('winner').insertBefore(scoreInfo, document.querySelector('#winner button'));
-        isGameOn = false
-    }
-    }, 1000);
-
-    //click event to each card
-   
-    document.querySelectorAll('.card').forEach((card) => {
-        card.addEventListener('click', () => {
-            if (isSoundOn){
-                flipSound.play();}
-            if (isGameOn == true) {
+const keys = Object.keys(document.getElementsByClassName('play'))
+keys.forEach(key=>{
+    document.getElementsByClassName('play')[key].onclick = () => {
+        if (isSoundOn){
+            clickSound.play();
+        }
+        restart()
+        // Timer for the game
+        let timer = setInterval(()=>{
+            time--;
+            document.querySelector('#time-remaining').innerHTML = time
+            if(time <= 10){
+                document.getElementById('shake').style.animation = 'shake 0.5s';
+                document.getElementById('shake').style.animationIterationCount = 'infinite';
+        
+            }
+            if(time == 0 && !game.checkIfFinished()){
+                clearInterval(timer)
+                document.getElementById('shake').style.animation = 'none';
+                document.getElementById('loser').style.display = 'flex';
+                isGameOn = false
+            } 
+            if(game.checkIfFinished()){
+                clearInterval(timer)
+                document.getElementById('shake').style.animation = 'none';
+                document.getElementById('winner').style.display = 'flex';
+                game.score = Math.floor(100* time/game.moves)
+                scoreInfo.innerHTML = `Your score is ${game.score}!`               
+                isGameOn = false
+            }
+            }, 1000);
+        
+        
+        //click event to each card   
+        document.querySelectorAll('.card').forEach((card) => {
+                
+            card.addEventListener('click', () => {
+                if (isSoundOn){
+                    flipSound.play();}
+                if (isGameOn == true) {
                 card.classList.add('turned');  
                 game.pickedCards.push(card)
-            if (game.pickedCards.length == 2) {
-                const card1 = game.pickedCards[0].getAttribute('data-card-name');
-                const card2 = game.pickedCards[1].getAttribute('data-card-name');
-                if (game.checkIfPair(card1, card2)) {
-                game.pickedCards[0].classList.add('blocked');
-                game.pickedCards[1].classList.add('blocked');
-                game.pickedCards = [];
-                //card.style.pointerEvents = 'auto';
-                } else {
-                setTimeout(() => {
-                    game.pickedCards.forEach((card) => {
-                    card.classList.remove('turned');})
+                if (game.pickedCards.length == 2) {
+                    const card1 = game.pickedCards[0].getAttribute('data-card-name');
+                    const card2 = game.pickedCards[1].getAttribute('data-card-name');
+                    if (game.checkIfPair(card1, card2)) {
+                    game.pickedCards[0].classList.add('blocked');
+                    game.pickedCards[1].classList.add('blocked');
                     game.pickedCards = [];
-                }, 1000);
-                }} 
-
-            document.querySelector('#moves-count').innerHTML = game.moves;
-            }
-        });
-        
-    });
-}
-
-document.getElementsByClassName('play-again')[0].onclick = () => {
-    if (isSoundOn){
-        clickSound.play();
-    }
-    restart()
-    // Timer for the game
-    let timer = setInterval(()=>{
-        time--;
-        document.querySelector('#time-remaining').innerHTML = time
-        if(time <= 10){
-            document.getElementById('shake').style.animation = 'shake 0.5s';
-            document.getElementById('shake').style.animationIterationCount = 'infinite';
+                    } else {
+                    setTimeout(() => {
+                        game.pickedCards.forEach((card) => {
+                        card.classList.remove('turned');})
+                        game.pickedCards = [];
+                    }, 1000);
+                    }} 
     
-        }
-        if(time == 0 && !game.checkIfFinished()){
-            clearInterval(timer)
-            document.getElementById('shake').style.animation = 'none';
-            document.getElementById('loser').style.display = 'flex';
-            isGameOn = false
-        } 
-        if(game.checkIfFinished()){
-            clearInterval(timer)
-            document.getElementById('shake').style.animation = 'none';
-            document.getElementById('winner').style.display = 'flex';
-            game.score = Math.floor(100* time/game.moves)
-            let scoreInfo = document.createElement('p')
-            scoreInfo.innerHTML = `Your score is ${game.score}!`
-            document.getElementById('winner').insertBefore(scoreInfo, document.querySelector('#winner button'));
-            isGameOn = false
-        }
-        }, 1000);
-    
-    
-    //click event to each card   
-    document.querySelectorAll('.card').forEach((card) => {
+                document.querySelector('#moves-count').innerHTML = game.moves;
+                }
+            });
             
-        card.addEventListener('click', () => {
-            if (isSoundOn){
-                flipSound.play();}
-            if (isGameOn == true) {
-            card.classList.add('turned');  
-            game.pickedCards.push(card)
-            if (game.pickedCards.length == 2) {
-                const card1 = game.pickedCards[0].getAttribute('data-card-name');
-                const card2 = game.pickedCards[1].getAttribute('data-card-name');
-                if (game.checkIfPair(card1, card2)) {
-                game.pickedCards[0].classList.add('blocked');
-                game.pickedCards[1].classList.add('blocked');
-                game.pickedCards = [];
-                } else {
-                setTimeout(() => {
-                    game.pickedCards.forEach((card) => {
-                    card.classList.remove('turned');})
-                    game.pickedCards = [];
-                }, 1000);
-                }} 
-
-            document.querySelector('#moves-count').innerHTML = game.moves;
-            }
         });
-        
-    });
-
-}
-document.getElementsByClassName('play-again')[1].onclick = () => {
-    if (isSoundOn){
-        clickSound.play();
+    
     }
-    restart()
-    // Timer for the game
-    let timer = setInterval(()=>{
-        time--;
-        document.querySelector('#time-remaining').innerHTML = time
-        if(time <= 10){
-            document.getElementById('shake').style.animation = 'shake 0.5s';
-            document.getElementById('shake').style.animationIterationCount = 'infinite';
-    
-        }
-        if(time == 0 && !game.checkIfFinished()){
-            clearInterval(timer)
-            document.getElementById('shake').style.animation = 'none';
-            document.getElementById('loser').style.display = 'flex';
-            isGameOn = false
-        } 
-        if(game.checkIfFinished()){
-            clearInterval(timer)
-            document.getElementById('shake').style.animation = 'none';
-            document.getElementById('winner').style.display = 'flex';
-            game.score = Math.floor(100* time/game.moves)
-            let scoreInfo = document.createElement('p')
-            scoreInfo.innerHTML = `Your score is ${game.score}!`
-            document.getElementById('winner').insertBefore(scoreInfo, document.querySelector('#winner button'));
-            isGameOn = false
-        }
-        }, 1000);
-    
-    
-    //click event to each card   
-    document.querySelectorAll('.card').forEach((card) => {
-            
-        card.addEventListener('click', () => {
-            if (isSoundOn){
-                flipSound.play();}
-            if (isGameOn == true) {
-            card.classList.add('turned');  
-            game.pickedCards.push(card)
-            if (game.pickedCards.length == 2) {
-                const card1 = game.pickedCards[0].getAttribute('data-card-name');
-                const card2 = game.pickedCards[1].getAttribute('data-card-name');
-                if (game.checkIfPair(card1, card2)) {
-                game.pickedCards[0].classList.add('blocked');
-                game.pickedCards[1].classList.add('blocked');
-                game.pickedCards = [];
-                //card.style.pointerEvents = 'auto';
-                } else {
-                setTimeout(() => {
-                    game.pickedCards.forEach((card) => {
-                    card.classList.remove('turned');})
-                    game.pickedCards = [];
-                }, 1000);
-                }} 
+})
 
-            document.querySelector('#moves-count').innerHTML = game.moves;
-            }
-        });
-        
-    });
-
-}
 
 
 
