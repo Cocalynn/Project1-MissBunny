@@ -23,8 +23,8 @@ let isGameOn = false
 let isMusicOn = true
 let isSoundOn = true
 let audio = document.getElementsByTagName('audio')[0];
-let clickSound = new Audio('../sounds/click-button.mp3');
-let flipSound = new Audio('../sounds/flip-card.mp3');
+let clickSound = new Audio('.../sounds/click-button.mp3');
+let flipSound = new Audio('.../sounds/flip-card.mp3');
 let scoreInfo = document.createElement('p')
 
 document.getElementById('winner').insertBefore(scoreInfo, document.querySelector('#winner button'));
