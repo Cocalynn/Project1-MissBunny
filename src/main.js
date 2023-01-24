@@ -30,17 +30,16 @@ let scoreInfo = document.createElement('p')
 document.getElementById('winner').insertBefore(scoreInfo, document.querySelector('#winner button'));
 
 // set bunny head images by side
-let bunnyHead = document.querySelectorAll('#bunny-head')
-setInterval(() => {
-let Num = Math.floor(Math.random() * 12) + 1
-if (Num < 10) {Num = '0' + Num}
-bunnyHead[0].innerHTML = `<img src="images/game-board/h-bunny-${Num}.png" alt="bunny head">`
-}, 1000)
-setInterval(() => {
-let Num = Math.floor(Math.random() * 12) + 1
-if (Num < 10) {Num = '0' + Num}
-bunnyHead[1].innerHTML = `<img src="images/game-board/h-bunny-${Num}.png" alt="bunny head">`
-}, 1000)
+const bunnyKeys = Object.keys(document.querySelectorAll('#bunny-head'))
+bunnyKeys.forEach((key) => {
+    setInterval(() => {
+        let Num = Math.floor(Math.random() * 12) + 1
+        if (Num < 10) {Num = '0' + Num}
+        document.querySelectorAll('#bunny-head')[key].innerHTML = `<img src="images/game-board/h-bunny-${Num}.png" alt="bunny head">`
+        }, 1000)
+
+})
+
 
 // Game settings
 document.getElementById('music').onclick = () => {
