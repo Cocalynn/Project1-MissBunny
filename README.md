@@ -27,21 +27,12 @@ Miss-Bunny is a game where the player has to match all card pairs in limited tim
 - document.getElementById('game-intro').onclick(){}
 - restart()
 
-
 ### cardGame.js
 - shuffleCards(){}
 - checkIfPair(){}
--  checkIfFinished(){}
-
-
-
-
-
-
+- checkIfFinished(){}
 
 ## Links
-
-
 
 ### Git
 URls for the project repo and deploy
