@@ -27,8 +27,7 @@ let clickSound = new Audio('./sounds/click-button.mp3');
 let flipSound = new Audio('./sounds/flip-card.mp3');
 let winSound = new Audio('./sounds/win.mp3');
 let loseSound = new Audio('./sounds/lose.mp3');
-let scoreInfo = document.createElement('p')
-
+let scoreInfo = document.createElement('p');
 document.getElementById('winner').insertBefore(scoreInfo, document.querySelector('#winner button'));
 
 // set bunny head images by side
@@ -39,7 +38,6 @@ bunnyKeys.forEach((key) => {
         if (Num < 10) {Num = '0' + Num}
         document.querySelectorAll('#bunny-head')[key].innerHTML = `<img src="images/game-board/h-bunny-${Num}.png" alt="bunny head">`
         }, 1000)
-
 })
 
 
@@ -60,7 +58,6 @@ document.getElementById('music').onclick = () => {
 }
 
 document.getElementById('sound').onclick = () => {
-    
     if (isSoundOn) {
         document.getElementById('sound').innerHTML = `<img src="./images/setting/Icon_SoundOff.png" >`
         clickSound.play();
@@ -156,8 +153,7 @@ keys.forEach(key=>{
         
         
         //click event to each card   
-        document.querySelectorAll('.card').forEach((card) => {
-                
+        document.querySelectorAll('.card').forEach((card) => {     
             card.addEventListener('click', () => {
                 if (isSoundOn){
                     flipSound.play();}
@@ -178,7 +174,6 @@ keys.forEach(key=>{
                         game.pickedCards = [];
                     }, 1000);
                     }} 
-    
                 document.querySelector('#moves-count').innerHTML = game.moves;
                 }
             });
