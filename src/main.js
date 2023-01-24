@@ -25,6 +25,8 @@ let isSoundOn = true
 let audio = document.getElementsByTagName('audio')[0];
 let clickSound = new Audio('./sounds/click-button.mp3');
 let flipSound = new Audio('./sounds/flip-card.mp3');
+let winSound = new Audio('./sounds/win.mp3');
+let loseSound = new Audio('./sounds/lose.mp3');
 let scoreInfo = document.createElement('p')
 
 document.getElementById('winner').insertBefore(scoreInfo, document.querySelector('#winner button'));
@@ -137,6 +139,7 @@ keys.forEach(key=>{
                 document.getElementsByClassName('shake')[0].style.animation = 'none';
                 document.getElementsByClassName('shake')[1].style.animation = 'none';
                 document.getElementById('loser').style.display = 'flex';
+                loseSound.play();
                 isGameOn = false
             } 
             if(game.checkIfFinished()){
@@ -144,6 +147,7 @@ keys.forEach(key=>{
                 document.getElementsByClassName('shake')[0].style.animation = 'none';
                 document.getElementsByClassName('shake')[1].style.animation = 'none';
                 document.getElementById('winner').style.display = 'flex';
+                winSound.play();
                 game.score = Math.floor(100* time/game.moves)
                 scoreInfo.innerHTML = `Your score is ${game.score}!`               
                 isGameOn = false
