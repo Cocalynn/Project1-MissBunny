@@ -52,3 +52,7 @@ https://mewki.itch.io/bunny-emotes
 https://penzilla.itch.io/handdrawn-vector-icon-pack
 
 https://www.youtube.com/watch?v=DGMuUigkbUs
+
+https://pixabay.com/sound-effects/search/victory/
+
+https://pixabay.com/sound-effects/search/lose/?manual_search=1&order=None
