@@ -2,7 +2,7 @@
 
 ## Description
 
-Miss-Bunny is a game where the player has to match all card pairs in limited time. The games ends when all cards are matched or time is up. After that, if the player finished matching, a score will be calculated based on timer and moves count. 
+Miss-Bunny is a game where the player has to match all card pairs in limited time. The game ends when all cards are matched or time is up. After that, if the player finished matching, a score will be calculated based on timer and moves count. 
 
 ## MVP (DOM)
 - Game instruction
