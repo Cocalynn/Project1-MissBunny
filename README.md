@@ -37,9 +37,9 @@ Miss-Bunny is a game where the player has to match all card pairs in limited tim
 ### Git
 URls for the project repo and deploy
 
-[Link Repo](https://github.com/cocalynn/project1-cardmatchinggame)
+[Link Repo](https://github.com/Cocalynn/Project1-MissBunny/)
 
-[Link Deploy]()
+[Link Deploy](https://cocalynn.github.io/Project1-MissBunny/)
 
 ### Slides
 URls for the project presentation (slides)
