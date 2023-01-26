@@ -11,6 +11,7 @@ body {
     background-image: url('../images/background.png');
     color: #f8f4e3ff;
     text-align: center;
+    cursor: url('../images/cursor.png'), auto;
 }
 #title {
     font-size: 5em;
@@ -63,6 +64,7 @@ body {
 .game-setting-button:hover {
     top: 2px;
     box-shadow: 0 4px 0 #b76113, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #75421f, 0 10px 0 5px #8a542b, 0 13px 0 5px #593116, 0 13px 1px 6px rgba(0,0,0,.3);
+    cursor: url('../images/cursor.png'), auto;
 }
 #question img,
 #music img,
@@ -221,6 +223,7 @@ body {
 .game-button.orange:hover {
   top: -348px;
   box-shadow: 0 4px 0 #b76113, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #75421f, 0 10px 0 5px #8a542b, 0 13px 0 5px #593116, 0 13px 1px 6px rgba(0,0,0,.3);
+  cursor: url('../images/cursor.png'), auto;
 }
 .game-button.red {
   font-size: 18px;
@@ -233,6 +236,7 @@ body {
 .game-button.red:hover {
   top:2px;
   box-shadow: 0 4px 0 #ae2725, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #831614, 0 10px 0 5px #a33634, 0 13px 0 5px #631716, 0 13px 1px 6px rgba(0,0,0,.3);
+  cursor: url('../images/cursor.png'), auto;
 }
 .game-button.green {
   width: 80px;
@@ -246,7 +250,8 @@ body {
  .game-button.green:hover {
    top:2px;
    box-shadow: 0 4px 0 #348628, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #2a6d20, 0 10px 0 5px #39822e, 0 13px 0 5px #1d4c16, 0 13px 1px 6px rgba(0,0,0,.3);
- }
+   cursor: url('../images/cursor.png'), auto;
+}
 
 #restart{
     width: 10%;
@@ -261,7 +266,12 @@ body {
     transform-style: preserve-3d;
     position: relative;
 }
-
+.card:hover, .card:focus, .card:active{
+    -webkit-transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
 .card.turned {
     pointer-events: none;
 }
