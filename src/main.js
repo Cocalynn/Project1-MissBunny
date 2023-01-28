@@ -109,8 +109,6 @@ function restart() {
     `;
     });
     document.querySelector('#game-board').innerHTML = html;
-
-
 }
 
 const keys = Object.keys(document.getElementsByClassName('play'))
@@ -150,8 +148,7 @@ keys.forEach(key=>{
                 isGameOn = false
             }
             }, 1000);
-        
-        
+              
         //click event to each card   
         document.querySelectorAll('.card').forEach((card) => {     
             card.addEventListener('click', () => {
@@ -176,10 +173,8 @@ keys.forEach(key=>{
                     }} 
                 document.querySelector('#moves-count').innerHTML = game.moves;
                 }
-            });
-            
+            });         
         });
-    
     }
 })
 
