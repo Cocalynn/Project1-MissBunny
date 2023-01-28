@@ -31,7 +31,6 @@ class CardGame {
     }
   
     checkIfPair(card1, card2) {
-      // ... write your code here
       this.moves++;
       if (card1 === card2) {
         this.pairsGuessed++;
@@ -41,7 +40,6 @@ class CardGame {
     }
   
     checkIfFinished() {
-      // ... write your code here
       if (this.pairsGuessed === this.cards.length / 2) {
         return true;
       }
